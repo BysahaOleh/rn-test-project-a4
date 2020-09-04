@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { Header, NavBar, Letter, Button } from '../components';
 
+import location from '../assets/icons/location-fill.png';
 import { letters } from '../mock';
 
 const Home = () => {
@@ -12,15 +13,19 @@ const Home = () => {
       <NavBar />
       <LetterList
         horizontal
+        showsHorizontalScrollIndicator={false}
         pagingEnabled
         decelerationRate={0}
         snapToInterval={359}
         snapToAlignment="left"
         data={letters}
+        keyExtractor={(item) => item.key}
         renderItem={({ item }) => <Letter {...item} />}
       />
       <ButtonBlock>
-        <Button>application @work</Button>
+        <Button icon={<LocationIcon source={location} resizeMode="contain" />}>
+          application @work
+        </Button>
       </ButtonBlock>
     </Container>
   );
@@ -41,6 +46,11 @@ const LetterList = styled.FlatList`
 const ButtonBlock = styled.View`
   flex: 1;
   padding: 0 10px;
+`;
+
+const LocationIcon = styled.Image`
+  width: 14px;
+  height: 18px;
 `;
 
 export default Home;

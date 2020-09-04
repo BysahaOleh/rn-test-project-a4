@@ -20,8 +20,9 @@ const Touchable = styled.TouchableOpacity`
 `;
 
 const Label = styled(H4)`
-  ${({ theme }) => theme.typography.weight.bold};
+  ${({ theme }) => theme.typography.weight.medium};
   color: ${({ theme }) => theme.colors.primaryLight};
+  top: 2px;
 `;
 
 const IconWrapper = styled.View`
